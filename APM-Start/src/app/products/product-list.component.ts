@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { IProduct } from './product';
 
+import { ProductService } from './product.service';
+
 @Component({
   selector: 'pm-products',
   templateUrl: './product-list.component.html',
@@ -50,6 +52,10 @@ export class ProductListComponent implements OnInit {
     },
   ];
 
+  constructor(private productService: ProductService) {
+    this.listFilter = 'cart';
+  }
+
   onRatingClicked(message: string): void {
     this.pageTitle = 'Product List: ' + message;
   }
@@ -66,6 +72,7 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('In Onit');
+    this.products = this.productService.getProducts();
+    this.filteredProducts = this.products;
   }
 }
