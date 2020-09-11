@@ -14,6 +14,7 @@ export class ProductListComponent {
   imageMargin = 2;
   // tslint:disable-next-line: no-inferrable-types
   showImage: boolean = false;
+  listFilter = 'cart';
   products: any[] = [
     {
       productId: 2,
