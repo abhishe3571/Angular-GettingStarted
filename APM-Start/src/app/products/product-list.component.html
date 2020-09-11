@@ -19,7 +19,7 @@
             <th>
               <button class="btn btn-primary" (click)="toggleImage()">
                 {{ showImage ? "Hide" : "Show" }}
-                Show Image
+                Image
               </button>
             </th>
             <th>Product</th>
@@ -40,11 +40,11 @@
                 [style.margin.px]="imageMargin"
               />
             </td>
-            <td>{{ product?.productName }}</td>
-            <td>{{ product?.productCode | lowercase }}</td>
-            <td>{{ product?.releaseDate }}</td>
-            <td>{{ product?.price  }}</td>
-            <td>{{ product?.starRating }}</td>
+            <td>{{ product.productName }}</td>
+            <td>{{ product.productCode | lowercase | convertToSpaces: '-' }}</td>
+            <td>{{ product.releaseDate }}</td>
+            <td>{{ product.price | currency:'INR':'symbol':'1.2-2'  }}</td>
+            <td>{{ product.starRating }}</td>
           </tr>
         </tbody>
       </table>
